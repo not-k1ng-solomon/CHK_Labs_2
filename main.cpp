@@ -19,13 +19,19 @@ int main() {
 			open.push(symbol);
 		}
 		else {
-			if ((int)symbol - (int)open.top() == 1 || (int)symbol - (int)open.top() == 2) {
-				open.pop();
-				scanf("%c", &symbol);
-				continue;
+			if (!open.empty()) {
+				if ((int)symbol - (int)open.top() == 1 || (int)symbol - (int)open.top() == 2) {
+					open.pop();
+					scanf("%c", &symbol);
+					continue;
+				}
+				else {
+					cout <<"false"<<endl;
+					return 0;
+				}
 			}
 			else {
-				cout <<"false"<<endl;
+				cout << "missing opening bracket or invalid character entered" << endl;
 				return 0;
 			}
 		}
